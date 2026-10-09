@@ -71,6 +71,31 @@
   .kpi .v.good{color:var(--good)}
   footer{text-align:center;color:var(--ink2);font-size:12px;margin-top:26px;line-height:1.8}
   footer code{background:#EFE9E2;padding:1px 6px;border-radius:4px;font-size:11.5px}
+
+  /* ---- 引导点 Star ---- */
+  .star-cta{
+    display:inline-flex;align-items:center;gap:7px;
+    background:#1F1B18;color:#fff;text-decoration:none;
+    font-size:14px;font-weight:700;padding:10px 20px;border-radius:999px;
+    margin-top:16px;transition:.15s;
+  }
+  .star-cta:hover{background:#000;transform:translateY(-1px);box-shadow:0 4px 14px rgba(31,27,24,.18)}
+  .cta-card{
+    background:#FFFDF5;border:1.5px solid #F3E7C8;border-radius:16px;
+    padding:22px 22px 18px;margin-top:24px;text-align:center;
+  }
+  .cta-card h3{font-size:16.5px;font-weight:800;margin-bottom:7px}
+  .cta-card p{font-size:13px;color:var(--ink2);margin-bottom:15px;line-height:1.7}
+  .cta-card .go{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--red);color:#fff;text-decoration:none;
+    font-size:14px;font-weight:700;padding:11px 26px;border-radius:999px;transition:.15s;
+  }
+  .cta-card .go:hover{background:#B8221A;transform:translateY(-1px)}
+  .cta-card .ghurl{
+    display:block;margin-top:12px;font-size:11.5px;color:var(--ink2);
+    word-break:break-all;letter-spacing:.2px;
+  }
 </style>
 </head>
 <body>
@@ -81,6 +106,7 @@
     <h1>🍟 麦麦拼单团长</h1>
     <div class="sub">帮一群人点麦当劳，不用再算账算到头疼<br>
       <span style="font-size:12.5px">下面两个计算器可以<span style="color:var(--red);font-weight:700">直接玩</span>——拖动滑块，立刻看到结果</span></div>
+    <a class="star-cta" href="https://github.com/heyllyhuang/mcd-group-order-captain" target="_blank" rel="noopener">⭐ 去 GitHub 点个 Star</a>
   </div>
 
   <!-- ============ 配餐规划 ============ -->
@@ -159,6 +185,15 @@
       ⚠️ 拆单前请确认门店是否接受<strong>同址多单</strong>，且需分别支付——别为了省 20 块拆 6 单把团长累死。
       <strong>省事也是成本。</strong>
     </div>
+  </div>
+
+  <!-- ============ 引导点 Star ============ -->
+  <div class="cta-card">
+    <h3>⭐ 玩得还行？求个 Star</h3>
+    <p>这是一件<strong>参赛作品</strong>，Star 数就是投票数。<br>
+       点开下面的链接，在页面右上角点一下 <strong>⭐ Star</strong> 就行，谢谢 🙏</p>
+    <a class="go" href="https://github.com/heyllyhuang/mcd-group-order-captain" target="_blank" rel="noopener">⭐ 打开 GitHub 项目并点 Star</a>
+    <span class="ghurl">github.com/heyllyhuang/mcd-group-order-captain</span>
   </div>
 
   <footer>
