@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦麦拼单战报</title>
+<style>
+  :root{--red:#DA291C;--yellow:#FFC72C;--ink:#1F1B18;--ink2:#6B6259;--line:#EDE7DF;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#F2EEE9;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+       color:var(--ink);display:flex;justify-content:center;padding:26px 16px}
+  .card{width:440px;background:#fff;border-radius:20px;overflow:hidden;
+        box-shadow:0 12px 34px rgba(31,27,24,.14)}
+  .head{background:linear-gradient(135deg,#DA291C 0%,#B01E13 100%);color:#fff;
+        padding:22px 24px 18px;position:relative;overflow:hidden}
+  .head::after{content:"";position:absolute;right:-36px;top:-42px;width:140px;height:140px;
+               border-radius:50%;background:var(--yellow);opacity:.2}
+  .kicker{font-size:12px;opacity:.92;letter-spacing:.4px;position:relative}
+  .head h1{font-size:21px;font-weight:800;margin-top:6px;position:relative;letter-spacing:.3px}
+  .hero{padding:24px 24px 18px;text-align:center;border-bottom:1px dashed var(--line)}
+  .hero-label{font-size:12.5px;color:var(--ink2)}
+  .hero-num{font-size:48px;font-weight:800;color:var(--red);line-height:1.12;
+            margin:4px 0 2px;font-variant-numeric:tabular-nums;letter-spacing:-1.5px}
+  .hero-sub{font-size:12.5px;color:var(--ink2)}
+  .grid{display:flex;padding:16px 14px;gap:8px}
+  .g{flex:1;text-align:center;background:#FFFCF6;border:1px solid var(--line);
+     border-radius:12px;padding:11px 4px}
+  .g b{display:block;font-size:19px;font-weight:800;font-variant-numeric:tabular-nums}
+  .g span{font-size:11.5px;color:var(--ink2)}
+  .block{padding:4px 24px 16px}
+  .bt{font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:9px;
+      padding-top:10px;border-top:1px solid var(--line)}
+  .bd{display:flex;justify-content:space-between;font-size:13px;padding:4px 0}
+  .bd b{color:var(--red);font-variant-numeric:tabular-nums}
+  .aw{display:flex;align-items:center;gap:9px;font-size:13px;padding:5px 0}
+  .aw .ico{font-size:15px}
+  .aw .t{color:var(--ink2);flex:0 0 76px}
+  .aw .n{font-weight:700}
+  .aw .v{margin-left:auto;color:var(--ink2);font-size:12px;font-variant-numeric:tabular-nums}
+  .foot{padding:14px 24px 20px;background:#FFFDF8;border-top:1.5px dashed var(--line);
+        font-size:11px;color:var(--ink2);text-align:center;line-height:1.7}
+  .foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <div class="kicker">渠道推广部 · 2026-10-09</div>
+      <h1>🍟 麦麦拼单战报</h1>
+    </div>
+
+    <div class="hero">
+      <div class="hero-label">本次共省</div>
+      <div class="hero-num">¥35.8</div>
+      <div class="hero-sub">相当于打了 8.1 折（原价 ¥187.0）</div>
+    </div>
+
+    <div class="grid">
+      <div class="g"><b>5</b><span>人参与</span></div>
+      <div class="g"><b>7</b><span>件商品</span></div>
+      <div class="g"><b>¥30.2</b><span>人均</span></div>
+    </div>
+
+    <div class="block">
+      <div class="bt">钱是怎么省下来的</div>
+      <div class="bd"><span>第二份半价 / 限购名额</span><b>−¥15.8</b></div><div class="bd"><span>满减券</span><b>−¥15.0</b></div><div class="bd"><span>专属券</span><b>−¥5.0</b></div><div class="bd" style="border-top:1px solid #EDE7DF;margin-top:5px;padding-top:7px"><span>实付</span><b>¥151.2</b></div>
+    </div>
+
+    <div class="block">
+      <div class="bt">本单之最</div>
+      <div class="aw"><span class="ico">🏆</span><span class="t">最大单</span><span class="n">老王</span><span class="v">¥47.0</span></div><div class="aw"><span class="ico">🍃</span><span class="t">最清淡</span><span class="n">小李</span><span class="v">¥26.5</span></div>
+    </div>
+
+    <div class="foot">
+      由 <b>麦麦拼单团长</b> 生成 · 基于麦当劳 MCP<br>
+      示例数据，实际价格以麦当劳官方渠道为准
+    </div>
+  </div>
+</body>
+</html>

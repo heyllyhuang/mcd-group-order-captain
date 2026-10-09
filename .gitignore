@@ -2,8 +2,9 @@
 roster.json
 .mcd-captain/
 
-# 运行产物
+# 运行产物（生成在运行目录，仓库内示例资产不受影响）
 battle-report.html
+!assets/battle-report.html
 result.json
 *.local.json
 
