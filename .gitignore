@@ -1,0 +1,20 @@
+# ⚠️ 本地个人数据（含他人的口味偏好），禁止提交到仓库
+roster.json
+.mcd-captain/
+
+# 运行产物
+battle-report.html
+result.json
+*.local.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini

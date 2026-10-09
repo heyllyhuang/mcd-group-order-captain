@@ -1,0 +1,15 @@
+{
+  "max_split": 6,
+  "delivery": { "fee": 9.0, "free_threshold": 59.0 },
+  "coupons": [
+    { "name": "满50减15", "threshold": 50.0, "discount": 15.0, "per_order": 1 }
+  ],
+  "items": [
+    {
+      "name": "巨无霸套餐",
+      "qty": 10,
+      "unit_price": 36.0,
+      "promo": { "kind": "limit_price", "scope": "per_order", "limit": 2, "price": 29.0 }
+    }
+  ]
+}

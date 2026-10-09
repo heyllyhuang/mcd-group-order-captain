@@ -1,0 +1,33 @@
+{
+  "team": "示例团队（人名为虚构，仅作格式演示）",
+  "updated": "2026-10-09",
+  "members": {
+    "小张": {
+      "usual": [{ "name": "巨无霸套餐", "qty": 1, "note": "可乐换无糖" }],
+      "like": ["巨无霸"],
+      "avoid": [],
+      "diet": "",
+      "note": "",
+      "order_count": 3,
+      "last_order": "2026-10-09"
+    },
+    "小李": {
+      "usual": [{ "name": "烤鸡沙拉", "qty": 1, "note": "" }],
+      "like": [],
+      "avoid": ["辣", "牛肉"],
+      "diet": "轻食",
+      "note": "减脂期",
+      "order_count": 3,
+      "last_order": "2026-10-09"
+    },
+    "小王": {
+      "usual": [{ "name": "麦辣鸡腿堡", "qty": 2, "note": "" }],
+      "like": ["麦辣鸡腿堡"],
+      "avoid": [],
+      "diet": "",
+      "note": "常给家人带一份",
+      "order_count": 2,
+      "last_order": "2026-10-09"
+    }
+  }
+}

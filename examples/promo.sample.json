@@ -1,0 +1,35 @@
+{
+  "promos": [
+    {
+      "name": "巨无霸套餐特价",
+      "kind": "limit_price",
+      "product": "巨无霸套餐",
+      "orig_price": 36.0,
+      "price": 29.0,
+      "limit": 2,
+      "scope": "per_order",
+      "period": "10.01-10.31"
+    },
+    {
+      "name": "麦乐鸡第二份半价",
+      "kind": "second_half",
+      "product": "麦乐鸡(5块)",
+      "limit": 1,
+      "scope": "per_account",
+      "period": "每周五"
+    },
+    {
+      "name": "满50减15券",
+      "kind": "threshold_coupon",
+      "threshold": 50.0,
+      "discount": 15.0,
+      "per_order": 1
+    },
+    {
+      "name": "满59免配送费",
+      "kind": "free_delivery",
+      "fee": 9.0,
+      "threshold": 59.0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "people": 12,
+  "budget_total": 400,
+  "scene": "afternoon",
+  "items": {
+    "main": { "name": "麦辣鸡腿堡(单点)", "price": 22.0 },
+    "combo": { "name": "麦辣鸡腿堡套餐", "price": 32.0, "promo_price": 29.0 },
+    "side": { "name": "薯条(大)", "price": 13.0 },
+    "drink": { "name": "可口可乐(中)", "price": 9.5 }
+  }
+}

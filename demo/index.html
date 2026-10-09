@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦麦拼单团长 · 在线体验</title>
+<style>
+  :root{
+    --red:#DA291C; --yellow:#FFC72C; --ink:#1F1B18; --ink2:#6B6259;
+    --line:#E9E2D9; --bg:#F7F4F0; --card:#FFFFFF; --good:#1B7F4B; --warn:#B26B00;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    line-height:1.6; padding:28px 16px 60px;
+  }
+  .wrap{max-width:880px;margin:0 auto}
+  .hero{text-align:center;margin-bottom:28px}
+  .hero h1{font-size:30px;font-weight:800;letter-spacing:-.4px}
+  .hero .sub{color:var(--ink2);font-size:14px;margin-top:8px}
+  .hero .badge{
+    display:inline-block;background:var(--yellow);color:#5A4200;font-size:12px;font-weight:700;
+    padding:4px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  .panel{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:22px 22px 18px;margin-bottom:20px;box-shadow:0 2px 12px rgba(31,27,24,.04);
+  }
+  .panel h2{font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .panel h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .panel .desc{color:var(--ink2);font-size:13px;margin:6px 0 16px}
+  .controls{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:18px}
+  .ctrl{flex:1 1 180px;min-width:150px}
+  .ctrl label{display:block;font-size:12.5px;color:var(--ink2);margin-bottom:6px}
+  .ctrl label b{color:var(--ink);font-size:14px}
+  input[type=range]{width:100%;accent-color:var(--red)}
+  select,input[type=number]{
+    width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:8px;
+    font-size:14px;font-family:inherit;background:#fff;color:var(--ink);
+  }
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+  .plan{border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;position:relative;transition:.15s}
+  .plan.rec{border-color:var(--red);background:#FFF9F8}
+  .plan.rec::after{
+    content:"推荐";position:absolute;top:-9px;right:12px;background:var(--red);color:#fff;
+    font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;
+  }
+  .plan .pname{font-weight:700;font-size:14.5px}
+  .plan .pprice{font-size:23px;font-weight:800;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+  .plan .pper{font-size:12.5px;color:var(--ink2)}
+  .plan .pdetail{font-size:12px;color:var(--ink2);margin-top:8px;line-height:1.5}
+  .plan .pfit{font-size:11.5px;color:var(--warn);margin-top:6px}
+  .note{
+    margin-top:14px;font-size:12.5px;color:var(--ink2);background:#FFFDF5;
+    border:1px solid #F3E7C8;border-radius:10px;padding:10px 12px;line-height:1.65;
+  }
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+  th{font-size:11.5px;color:var(--ink2);font-weight:600;text-align:right;padding:0 0 8px;border-bottom:1.5px solid var(--line)}
+  th:first-child{text-align:left}
+  td{padding:8px 0;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+  td:first-child{text-align:left}
+  tr.best td{background:#FFF9F8;font-weight:700;color:var(--red)}
+  tr.best td:first-child::after{content:" ← 推荐";font-size:11px}
+  .summary{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;
+  }
+  .kpi{flex:1 1 130px;background:#FFFDF8;border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+  .kpi .k{font-size:11.5px;color:var(--ink2)}
+  .kpi .v{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
+  .kpi .v.good{color:var(--good)}
+  footer{text-align:center;color:var(--ink2);font-size:12px;margin-top:26px;line-height:1.8}
+  footer code{background:#EFE9E2;padding:1px 6px;border-radius:4px;font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="badge">麦当劳程序员创意开发大赛 参赛作品</div>
+    <h1>🍟 麦麦拼单团长</h1>
+    <div class="sub">帮一群人点麦当劳，不用再算账算到头疼<br>
+      <span style="font-size:12.5px">下面两个计算器可以<span style="color:var(--red);font-weight:700">直接玩</span>——拖动滑块，立刻看到结果</span></div>
+  </div>
+
+  <!-- ============ 配餐规划 ============ -->
+  <div class="panel">
+    <h2><span class="dot"></span>① 配餐规划：点多少份才刚好够</h2>
+    <div class="desc">没人愿意报吃什么时，团长自己定。核心是「<b>小食饮料按比例配，不按人头配</b>」——12 个人点 12 份薯条，必然剩。</div>
+
+    <div class="controls">
+      <div class="ctrl">
+        <label>人数：<b id="pv">12</b> 人</label>
+        <input type="range" id="people" min="4" max="30" value="12">
+      </div>
+      <div class="ctrl">
+        <label>场合</label>
+        <select id="scene">
+          <option value="afternoon" selected>下午茶（小食 ×0.7 / 饮料 ×0.8）</option>
+          <option value="meal">正餐（小食 ×0.8 / 饮料 ×1.0）</option>
+          <option value="overtime">加班餐（小食 ×0.6 / 饮料 ×0.9）</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>总预算（元）</label>
+        <input type="number" id="budget" value="400" min="0" step="10">
+      </div>
+    </div>
+
+    <div style="font-size:13px;color:var(--ink2);margin-bottom:12px">
+      建议份数：<b id="portion" style="color:var(--ink)"></b>
+    </div>
+
+    <div class="plans" id="plans"></div>
+    <div class="note" id="planNote"></div>
+  </div>
+
+  <!-- ============ 买单策略 ============ -->
+  <div class="panel">
+    <h2><span class="dot"></span>② 买单策略：为什么点多了反而不便宜</h2>
+    <div class="desc">
+      两个原因：<b>特价套餐限购</b>（超出的按原价）+ <b>满减券一单一券</b>（人越多金额越大，一张券被摊越薄）。
+      解法是拆单——但要算上多付的配送费。
+    </div>
+
+    <div class="controls">
+      <div class="ctrl">
+        <label>套餐份数：<b id="qv">10</b> 份</label>
+        <input type="range" id="qty" min="2" max="20" value="10">
+      </div>
+      <div class="ctrl">
+        <label>满减券</label>
+        <select id="coupon">
+          <option value="15,50" selected>满 50 减 15</option>
+          <option value="20,60">满 60 减 20</option>
+          <option value="10,40">满 40 减 10</option>
+          <option value="0,0">不使用券</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>限购名额（每单）</label>
+        <select id="limit">
+          <option value="2" selected>每单限 2 份特价</option>
+          <option value="1">每单限 1 份特价</option>
+          <option value="0">不限购</option>
+        </select>
+      </div>
+    </div>
+
+    <table id="payTable">
+      <thead>
+        <tr><th>拆单数</th><th>每单份数</th><th>商品小计</th><th>券</th><th>配送费</th><th>净付</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="summary" id="payKpi"></div>
+    <div class="note">
+      ⚠️ 拆单前请确认门店是否接受<strong>同址多单</strong>，且需分别支付——别为了省 20 块拆 6 单把团长累死。
+      <strong>省事也是成本。</strong>
+    </div>
+  </div>
+
+  <footer>
+    本页为演示用<strong>示例数据</strong>（以某门店常见餐品为例），实际菜单、价格、优惠以麦当劳官方渠道实时结果为准。<br>
+    完整能力（实时菜单对齐、领券、拆账、结算单）需接入麦当劳 MCP，见仓库 <code>README.md</code>。
+  </footer>
+</div>
+
+<script>
+/* ---------------- 示例数据（演示用，非实时） ---------------- */
+var ITEMS = {
+  main:  { name:'麦辣鸡腿堡(单点)', price:22.0 },
+  combo: { name:'麦辣鸡腿堡套餐',   price:32.0, promo:29.0 },
+  side:  { name:'薯条(大)',        price:13.0 },
+  drink: { name:'可口可乐(中)',     price:9.5 }
+};
+var SCENE = {
+  afternoon:{ label:'下午茶', side:0.7, drink:0.8 },
+  meal:     { label:'正餐',   side:0.8, drink:1.0 },
+  overtime: { label:'加班餐', side:0.6, drink:0.9 }
+};
+var DELIVERY = { fee:9.0, free:59.0 };
+
+function r1(x){ return Math.round(x*10)/10; }
+function money(x){ return x.toFixed(1); }
+
+/* ---------------- ① 配餐规划 ---------------- */
+function renderPlan(){
+  var n = +document.getElementById('people').value;
+  var sk = document.getElementById('scene').value;
+  var budget = +document.getElementById('budget').value || 0;
+  var s = SCENE[sk];
+
+  document.getElementById('pv').textContent = n;
+
+  var mainN = n;
+  var sideN = Math.max(1, Math.round(n * s.side));
+  var drinkN = Math.max(1, Math.round(n * s.drink));
+  document.getElementById('portion').textContent =
+    '主食 ' + mainN + ' 份 / 小食 ' + sideN + ' 份 / 饮料 ' + drinkN + ' 份';
+
+  var plans = [];
+  var cheapSide = Math.max(1, Math.round(sideN*0.6));
+  plans.push({
+    name:'省钱版',
+    total: ITEMS.main.price*mainN + ITEMS.side.price*cheapSide,
+    detail: ITEMS.main.name+'×'+mainN+' ＋ '+ITEMS.side.name+'×'+cheapSide+'（饮料自带）',
+    fit:'预算紧、只求吃饱'
+  });
+  var balSide = Math.max(1, Math.round(sideN*0.4));
+  plans.push({
+    name:'均衡版',
+    total: ITEMS.combo.promo*mainN + ITEMS.side.price*balSide,
+    detail: ITEMS.combo.name+'×'+mainN+' ＋ 追加'+ITEMS.side.name+'×'+balSide,
+    fit:'通用推荐，人人有主食有饮料'
+  });
+  var premDrink = Math.max(1, Math.round(drinkN*0.5));
+  plans.push({
+    name:'体面版',
+    total: ITEMS.combo.promo*mainN + ITEMS.side.price*sideN + ITEMS.drink.price*premDrink,
+    detail: ITEMS.combo.name+'×'+mainN+' ＋ '+ITEMS.side.name+'×'+sideN+' ＋ '+ITEMS.drink.name+'×'+premDrink,
+    fit:'请客 / 重要场合'
+  });
+
+  var rec = '均衡版';
+  if (budget > 0){
+    var ok = plans.filter(function(p){ return p.total <= budget; });
+    rec = ok.length ? ok[ok.length-1].name : '省钱版';
+  }
+
+  var html = '';
+  plans.forEach(function(p){
+    var isRec = (p.name === rec);
+    html += '<div class="plan'+(isRec?' rec':'')+'">'
+      + '<div class="pname">'+p.name+'</div>'
+      + '<div class="pprice">¥'+money(r1(p.total))+'</div>'
+      + '<div class="pper">人均 ¥'+money(r1(p.total/n))+'</div>'
+      + '<div class="pdetail">'+p.detail+'</div>'
+      + '<div class="pfit">'+p.fit+'</div>'
+      + '</div>';
+  });
+  document.getElementById('plans').innerHTML = html;
+
+  var note = '💡 小食按人数 ×'+Math.round(s.side*100)+'% 配、饮料 ×'+Math.round(s.drink*100)
+    + '% 配——<b>不是人手一份</b>，这是「不浪费」的关键。';
+  if (budget > 0){
+    var over = plans.filter(function(p){ return p.total > budget; }).length;
+    note += '　预算 ¥'+budget+' 内可选 '+ (3-over) +' 档。';
+  }
+  note += '<br>🔖 示例已按当日套餐活动价 ¥'+money(ITEMS.combo.promo)+'（原价 ¥'+money(ITEMS.combo.price)
+    +'）计入——<b>活动一停，方案价格就变</b>，这正是要接实时 MCP 的原因。';
+  document.getElementById('planNote').innerHTML = note;
+}
+
+/* ---------------- ② 买单策略 ---------------- */
+function splitQty(qty, k){
+  var base = Math.floor(qty/k), rem = qty % k, arr = [];
+  for (var i=0;i<k;i++) arr.push(base + (i<rem?1:0));
+  return arr;
+}
+function bucketPrice(q, promoLimit, couponMin, couponVal){
+  var promoQ = promoLimit > 0 ? Math.min(q, promoLimit) : 0;
+  var sub = promoQ*ITEMS.combo.promo + (q-promoQ)*ITEMS.combo.price;
+  var coupon = (couponMin > 0 && sub >= couponMin) ? couponVal : 0;
+  var fee = sub >= DELIVERY.free ? 0 : DELIVERY.fee;
+  return { sub:r1(sub), coupon:r1(coupon), fee:r1(fee), net:r1(sub-coupon+fee) };
+}
+
+function renderPay(){
+  var qty = +document.getElementById('qty').value;
+  var cv = document.getElementById('coupon').value.split(',');
+  var couponVal = +cv[0], couponMin = +cv[1];
+  var promoLimit = +document.getElementById('limit').value;
+
+  document.getElementById('qv').textContent = qty;
+
+  var maxSplit = Math.min(qty, 8);
+  var rows = [], bestIdx = 0;
+  for (var k=1;k<=maxSplit;k++){
+    var parts = splitQty(qty,k);
+    var sub=0, cp=0, fee=0, net=0;
+    parts.forEach(function(q){
+      var p = bucketPrice(q, promoLimit, couponMin, couponVal);
+      sub+=p.sub; cp+=p.coupon; fee+=p.fee; net+=p.net;
+    });
+    rows.push({k:k, parts:parts.join('×'), sub:r1(sub), coupon:r1(cp), fee:r1(fee), net:r1(net)});
+    if (rows[k-1].net < rows[bestIdx].net) bestIdx = k-1;
+  }
+
+  var tb = document.querySelector('#payTable tbody');
+  tb.innerHTML = rows.map(function(r,i){
+    return '<tr class="'+(i===bestIdx?'best':'')+'">'
+      + '<td>'+r.k+' 单</td><td>'+r.parts+'</td><td>¥'+money(r.sub)+'</td>'
+      + '<td>'+(r.coupon?'−¥'+money(r.coupon):'—')+'</td>'
+      + '<td>'+(r.fee?'¥'+money(r.fee):'免')+'</td>'
+      + '<td>¥'+money(r.net)+'</td></tr>';
+  }).join('');
+
+  var base = rows[0].net, best = rows[bestIdx];
+  var save = r1(base - best.net);
+  var kpi = '';
+  kpi += '<div class="kpi"><div class="k">最优拆单数</div><div class="v">'+best.k+' 单</div></div>';
+  kpi += '<div class="kpi"><div class="k">净付</div><div class="v">¥'+money(best.net)+'</div></div>';
+  kpi += '<div class="kpi"><div class="k">比不拆单省</div><div class="v '+(save>0?'good':'')+'">'
+      + (save>0? '¥'+money(save) : (save<0? '反而贵 ¥'+money(-save) : '无差别')) + '</div></div>';
+  document.getElementById('payKpi').innerHTML = kpi;
+}
+
+/* ---------------- 绑定 ---------------- */
+['people','scene','budget'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', renderPlan);
+});
+['qty','coupon','limit'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', renderPay);
+});
+renderPlan();
+renderPay();
+</script>
+</body>
+</html>

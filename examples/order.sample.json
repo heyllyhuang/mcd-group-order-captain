@@ -1,0 +1,43 @@
+{
+  "store": "麦当劳(科韵路店)",
+  "date": "2026-10-09",
+  "shared_discount": 15.0,
+  "person_discounts": { "小张": 5.0 },
+  "people": [
+    {
+      "name": "小张",
+      "tag": "碳水战神",
+      "items": [
+        { "name": "巨无霸套餐", "qty": 1, "unit_price": 36.0 }
+      ]
+    },
+    {
+      "name": "小李",
+      "tag": "减肥未遂",
+      "items": [
+        { "name": "烤鸡沙拉", "qty": 1, "unit_price": 26.5 }
+      ]
+    },
+    {
+      "name": "小王",
+      "items": [
+        { "name": "麦辣鸡腿堡", "qty": 2, "unit_price": 22.0, "second_half": true }
+      ]
+    },
+    {
+      "name": "老王",
+      "items": [
+        { "name": "板烧鸡腿堡套餐", "qty": 1, "unit_price": 34.0 },
+        { "name": "薯条(大)", "qty": 1, "unit_price": 13.0 }
+      ]
+    },
+    {
+      "name": "团长",
+      "tag": "薅券担当",
+      "items": [
+        { "name": "麦乐鸡(5块)", "qty": 1, "unit_price": 14.5 },
+        { "name": "可口可乐(中)", "qty": 2, "unit_price": 9.5, "second_half": true }
+      ]
+    }
+  ]
+}
